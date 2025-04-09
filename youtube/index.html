@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/icons/favicon.ico">
+    <title>Clone YouTube</title>
+    <link rel="stylesheet" href="./styles/general.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/sidebar.css">
+    <link rel="stylesheet" href="./styles/video.css">
+</head>
+<body>
+    <header class="header">
+        <div class="start">
+                <button class="hamburger-btn">
+                    <img class="hamburger-menu" src="assets/icons/hamburger-menu.svg" alt=""></button>
+                <img class="youtube-logo" src="assets/icons/youtube-logo.svg" alt="">
+                <span class="kr">KR</span>
+        </div>
+        <div class="center">
+            <input class="search-bar" id="search-input" type="text" placeholder="  검색">
+            <button class="search-btn" id="search-btn">
+                <img class="search-icon" src="assets/icons/search.svg" alt="">
+            </button>
+            <button class="voice-search-btn">
+                <img class="voice-search-icon" src="assets/icons/mike.png" alt="">
+                <div class="tooltip">음성으로 검색</div>
+            </button>
+        </div>
+        <div class="end">
+           <button class="upload-btn"> + &nbsp; 만들기</button>
+            <img class="notifications-icon" src="assets/icons/notifications.svg">
+            <img class="current-user-picture" src="assets/images/avatars/avatar-1.png" alt="">
+        </div>
+    </header>
+
+    <nav class="sidebar">
+        <div class="sidebar-link">
+            <img src="assets/icons/home.svg">
+            <div>홈</div>
+        </div>
+        <div class="sidebar-link">
+            <img src="assets/icons/shorts.svg">
+            <div>shorts</div>
+        </div>
+        <div class="sidebar-link">
+            <img src="assets/icons/subscriptions.svg">
+            <div>구독</div>
+        </div>
+        <div class="sidebar-link">
+            <img src="assets/icons/music.svg">
+            <div>Youtube Music</div>
+        </div>
+        <div class="sidebar-link">
+            <img src="assets/icons/user.png">
+            <div>내 페이지</div>
+        </div>
+    </nav>
+
+    <!-- 확장형 전체 메뉴 사이드바 -->
+    <nav class="sidebar-full" id="sidebar-full">
+        <div class="sidebar-section">
+            <div class="sidebar-full-link active">
+                <img src="assets/icons/home.svg" alt="홈 아이콘">
+                <span>홈</span>
+            </div>
+            <div class="sidebar-full-link">
+                <img src="assets/icons/shorts.svg" alt="Shorts 아이콘">
+                <span>Shorts</span>
+            </div>
+            <div class="sidebar-full-link">
+                <img src="assets/icons/subscriptions.svg" alt="구독 아이콘">
+                <span>구독</span>
+            </div>
+            <div class="sidebar-full-link">
+                <img src="assets/icons/music.svg">
+                <span>Youtube Music</span>
+            </div>
+        </div>
+        <hr>
+        <div class="sidebar-section">
+            <div class="sidebar-full-link">
+                <span>내 페이지</span>
+                <!-- <img src="assets/icons/right.png" alt="내 페이지 아이콘"> -->
+            </div>
+            <div class="sidebar-full-link">
+                <img src="assets/icons/history.png" alt="시청 기록 아이콘">
+                <span>시청 기록</span>
+            </div>
+            <div class="sidebar-full-link">
+                <img src="assets/icons/library.svg" alt="재생목록 아이콘">
+                <span>재생목록</span>
+            </div>
+            <div class="sidebar-full-link">
+                <img src="assets/icons/your-videos.svg" alt="내 동영상 아이콘">
+                <span>내 동영상</span>
+            </div>
+            <div class="sidebar-full-link">
+                <img src="assets/icons/watch-later.svg" alt="나중에 볼 동영상 아이콘">
+                <span>나중에 볼 동영상</span>
+            </div>
+        </div>
+        <hr>
+        <div class="sidebar-section">
+            <div class="sidebar-full-link">
+                <span class="section-title">구독</span>
+            </div>
+            <div class="sidebar-full-link">
+                <img src="assets/images/avatars/channels6_profile.jpg" class="channel-icon" alt="채널">
+                <span>DAY6</span>
+            </div>
+            <div class="sidebar-full-link">
+                <img src="assets/images/avatars/sungjin.jpg" class="channel-icon" alt="채널">
+                <span>박성찐이야</span>
+            </div>
+        </div>
+    </nav>
+    <!-- 오버레이 누르면 확장 메뉴 사이드바 닫힘, 배경 어둡게 -->
+    <div class="overlay" id="overlay"></div>
+
+
+    <main>
+        <section class="category-bar">
+            <button class="group-btn" data-filter="all">전체</button>
+            <button class="group-btn" data-filter="music">음악</button>
+            <button class="group-btn" data-filter="day6">Day6</button>
+            <button class="group-btn" data-filter="live">라이브</button>
+            <button class="group-btn" data-filter="game">게임</button>
+            <button class="group-btn" data-filter="uploads">최근에 업로드된 동영상</button>
+            <button class="group-btn" data-filter="watched">감상한 동영상</button>
+            <button class="group-btn" data-filter="new">새로운 맞춤 동영상</button>
+        </section>
+
+        <section class="video-grid">
+            <!-- video-preview1 start -->
+            <div class="video-preview" data-category="music day6">
+                <div class="thumbnail-row">
+                    <img class="thumbnail" src="assets/images/thumbnails/thumbnail-1.jpg">
+                    <!-- video auto play -->
+                    <div class="video-overlay" id="video-overlay">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/1ZrX9ytcm4A?si=177wFeKPte8hzpA1&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <!-- 시청시간 표시 -->
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                    <div class="video-time">3:15</div>
+                </div>
+                <div class="video-info-grid">
+                    <div class="channel-picture">
+                        <img class="profile-picture" src="assets/images/avatars/avatar-1.png">
+                    </div>
+                    <div class="video-info">
+                        <p class="video-title">내 마지막이 되어줘 : DAY6(데이식스) - Finale [가사/해석]</p>
+                        <p class="video-author">day night</p>
+                        <p class="video-stats">조회수 56만회 &#183; 9개월 전</p>
+                    </div>
+                </div>
+            </div>
+            <!-- video-preview1 end -->
+            <!-- video-preview2 start -->
+            <div class="video-preview" data-category="day6 uploads">
+                <div class="thumbnail-row">
+                    <img class="thumbnail" src="assets/images/thumbnails/thumbnail-2.jpg">
+                    <!-- video auto play -->
+                    <div class="video-overlay" id="video-overlay">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/fUabip78t9s?si=lnHZC8OCScUjGu4Q&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <!-- 시청시간 표시 -->
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    
+                    <div class="video-time">20:33</div>
+                </div>
+                <div class="video-info-grid">
+                    <div class="channel-picture">
+                        <img class="profile-picture" src="assets/images/avatars/sungjin.jpg">
+                    </div>
+                    <div class="video-info">
+                        <p class="video-title">[🐰 땀샘 폭발 주의 ⚠] 찐초보 운전! 원필이 연수 해주고 왔습니다🛞 [박성찐이야 시즌 2 EP. 42]</p>
+                        <p class="video-author">박성찐이야</p>
+                        <p class="video-stats">조회수 11만회 &#183; 1일 전</p>
+                    </div>
+                </div>
+            </div>
+            <!-- video-preview2 end -->
+            <!-- video-preview3 start -->
+            <div class="video-preview" data-category="game">
+                <div class="thumbnail-row">
+                    <img class="thumbnail" src="assets/images/thumbnails/thumbnail-3.jpg">
+                    <!-- video auto play -->
+                    <div class="video-overlay" id="video-overlay">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/NuvgRd257gI?si=OKiEXJw5Aw_tfI0S&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <!-- 시청시간 표시 -->
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                    <div class="video-time">15:32</div>
+                </div>
+                <div class="video-info-grid">
+                    <div class="channel-picture">
+                        <img class="profile-picture" src="assets/images/avatars/unnamed.jpg">
+                    </div>
+                    <div class="video-info">
+                        <p class="video-title">우주하마 괴롭히려고 시청자가 만든 팬게임ㅋㅋㅋㅋ개빡ㅊ꿀잼</p>
+                        <p class="video-author">우주하마</p>
+                        <p class="video-stats">조회수 622만회 &#183; 4년 전</p>
+                    </div>
+                </div>
+            </div>
+            <!-- video-preview3 end -->
+            <!-- video-preview4 start -->
+            <div class="video-preview" data-category="watched">
+                <div class="thumbnail-row">
+                    <img class="thumbnail" src="assets/images/thumbnails/thumbnail-4.jpg">
+                    <!-- video auto play -->
+                    <div class="video-overlay" id="video-overlay">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/7n8Gmls_5Lk?si=pFySDCaF0vnjM_tk&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <!-- 시청시간 표시 -->
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="video-time">11:55</div>
+                </div>
+                <div class="video-info-grid">
+                    <div class="channel-picture">
+                        <img class="profile-picture" src="assets/images/avatars/okji.jpg">
+                    </div>
+                    <div class="video-info">
+                        <p class="video-title">도지 싱크로율 100% 싹퉁바가지 없는 개</p>
+                        <p class="video-author">옥지네</p>
+                        <p class="video-stats">조회수 26만회 &#183; 9개월 전</p>
+                    </div>
+                </div>
+            </div>
+            <!-- video-preview4 end -->
+            <!-- video-preview5 start -->
+            <div class="video-preview" data-category="day6 uploads">
+                <div class="thumbnail-row">
+                    <img class="thumbnail" src="assets/images/thumbnails/thumbnail-5.jpg">
+                    <!-- video auto play -->
+                    <div class="video-overlay" id="video-overlay">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/87TZjvkuOAA?si=UG-YQZx-XluVC0zT&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <!-- 시청시간 표시 -->
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                    <div class="video-time">11:55</div>
+                </div>
+                <div class="video-info-grid">
+                    <div class="channel-picture">
+                        <img class="profile-picture" src="assets/images/avatars/channels5_profile.jpg">
+                    </div>
+                    <div class="video-info">
+                        <p class="video-title">2025년 4월 6일 데이식스 성진 인스타 라이브 고민상담, 미니콘서트까지 하고 간 우리 떵딘이🐻</p>
+                        <p class="video-author">마이데식🐻</p>
+                        <p class="video-stats">조회수 1.2만회 &#183; 1일 전</p>
+                    </div>
+                </div>
+            </div>
+            <!-- video-preview5 end -->
+            <!-- video-preview6 start -->
+            <div class="video-preview" data-category="day6 music live">
+                <div class="thumbnail-row">
+                    <img class="thumbnail" src="assets/images/thumbnails/thumbnail-6.jpg">
+                    <!-- video auto play -->
+                    <div class="video-overlay" id="video-overlay">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Hx9KyUXLrWE?si=dWnu7olkBgR905Pq&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <!-- 시청시간 표시 -->
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                    <div class="video-time">11:55</div>
+                </div>
+                <div class="video-info-grid">
+                    <div class="channel-picture">
+                        <img class="profile-picture" src="assets/images/avatars/channels6_profile.jpg">
+                    </div>
+                    <div class="video-info">
+                        <p class="video-title">[LIVE] Welcome to the Show~LOVE PARADE｜2024 DAY6 CONCERT ＜Welcome to the Show＞</p>
+                        <p class="video-author">DAY6</p>
+                        <p class="video-stats">조회수 169만회 &#183; 10개월 전</p>
+                    </div>
+                </div>
+            </div>
+            <!-- video-preview6 end -->
+
+        </section>
+
+    </main>
+
+
+    <script src="./youtube.js"></script>
+</body>
+</html>

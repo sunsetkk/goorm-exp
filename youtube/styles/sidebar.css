@@ -1,0 +1,102 @@
+.sidebar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 55px;
+    background-color: transparent;
+    width: 70px;
+    z-index: 200;
+    padding-top: 5px;
+}
+  
+
+.sidebar-link {
+    height: 74px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.sidebar-link:hover {
+    background-color: #4D4D4D;
+}
+
+.sidebar-link img {
+    height: 24px;
+    margin-bottom: 4px;
+}
+
+.sidebar-link div {
+    font-size: 10px;
+}
+
+.sidebar-full {
+    position: fixed;
+    top: 55px;
+    left: 0;
+    width: 196px;
+    height: 100%;
+    background-color: #0f0f0f;
+    color: white;
+    z-index: 200;
+    padding-top: 10px;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.sidebar-full-link.active {
+    background-color: #383838;  /* 강조 배경색 */
+    font-weight: bold;
+}
+  
+
+.sidebar-full.show {
+    transform: translateX(0);
+}
+  
+.sidebar-full-section {
+    padding: 8px 0;
+}
+  
+.sidebar-full-link {
+    display: flex;
+    flex-direction: row; /* 아이콘과 텍스트를 가로로 나열 */
+    align-items: center;
+
+    gap: 14px; /* 아이콘과 글자 사이 간격 */
+    padding: 8px 10px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 8px;
+    margin: 0px 10px;
+}
+  
+.sidebar-full-link:hover {
+    background-color: #272727;
+}
+  
+.sidebar-full-link img {
+    width: 20px;
+    margin-right: 20px;
+    flex-shrink: 0; /* 줄어들지 않게 고정 */
+}
+.sidebar-full-link span {
+    font-size: 12px;
+    color: white;
+    white-space: nowrap;
+}
+
+.sidebar-full hr{
+    border: none;              /* 기본 테두리 제거 */
+    height: 1px;               /* 선 두께 설정 */
+    background-color: #303030; /* 유튜브 느낌의 중간 회색 */
+    margin: 8px 10px;
+}
+
+.channel-icon {
+    border-radius: 10px;
+}
