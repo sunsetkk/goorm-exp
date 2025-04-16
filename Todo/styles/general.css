@@ -1,0 +1,51 @@
+
+/* body에 반투명 배경 처리 */
+body {
+    font-family: Roboto, Arial;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: url('https://source.unsplash.com/1600x900/?paper,texture') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 메인 노트 카드 스타일 */
+.todo-container {
+    background: rgba(255, 255, 255, 0.2); /* 반투명 흰 배경 */
+    backdrop-filter: blur(10px);            /* 배경 흐리게 */
+    -webkit-backdrop-filter: blur(10px);    /* 사파리 호환 */
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 1440px;
+    color: #333;
+    box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 768px) {
+    .todo-container {
+      width: 90%;
+      padding: 20px;
+      font-size: 13px;
+    }
+  
+    .header h1 {
+      font-size: 20px;
+    }
+  
+    .add-btn {
+      margin-top: 20px;
+      width: auto;
+    }
+  
+    .btn-group {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+}

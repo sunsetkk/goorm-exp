@@ -1,0 +1,131 @@
+.todo-input-wrapper {
+    margin-top: 20px;
+    display: none; /* none 처음엔 숨김 */
+}
+
+  /* 입력창 스타일 */
+.todo-input {
+    padding: 8px 12px;
+    width: 200px;
+    max-width: 250px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+
+}
+    
+.todo-input:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+.submit-btn {
+    margin-left: 8px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.todo-list {
+    margin-top: 20px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+ 
+.todo-text {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+  
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+  
+.delete-button {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .todo-input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .todo-input-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+    .todo-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+  
+    .btn-group {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .delete-button {
+      align-self: flex-end;
+    }
+  }
+
+  .todo-input-wrapper {
+    margin-top: 20px;
+    display: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 공통 버튼 스타일 */
+button {
+    font-family: inherit;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  
+  /* 버튼 그룹 내 버튼 별도 스타일 조정 */
+.filter-btn,
+.sort-btn {
+  margin-left: 8px;
+  background-color: #6c757d;
+}
+  
+.filter-btn:hover,
+.sort-btn:hover {
+  background-color: #5a6268;
+}
+  
+
+  
+ /* 삭제 버튼만 특별 스타일 */
+.delete-button {
+  background-color: transparent;
+  color: red;
+  font-size: 18px;
+  padding: 0 8px;
+}
+  

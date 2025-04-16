@@ -1,0 +1,30 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+
+    height: 50px;
+
+}
+
+.add-btn {
+    all: unset;
+
+    cursor: pointer;
+    margin-top: 40px;
+    padding-left: 10px;
+    width: 40px;
+    height: 20px;
+
+}
+.add-btn:hover {
+    color: black;
+    font:bolder;
+
+}
+
+.btn-group {
+    display: flex;
+    justify-content: right;
+    margin-top: 40px;
+    
+}
