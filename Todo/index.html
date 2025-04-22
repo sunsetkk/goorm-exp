@@ -21,12 +21,21 @@
             <button class="filter-btn" data-filter="all">전체</button>
             <button class="filter-btn" data-filter="completed">완료</button>
             <button class="filter-btn" data-filter="active">미완료</button>
-            <button class="sort-btn">오래된 순</button>
+
+            <button class="sort-btn sort-created-btn">오래된 순</button>
+            <button class="sort-btn sort-priority-btn">중요도 높은 순</button>
+            
         </nav>
 
         <main class="main-content" id="mainContent">
             <div class="todo-input-wrapper">
+                
                 <input type="text" class="todo-input" placeholder="할 일을 입력하세요" />
+                <select class="priority-select">
+                    <option value="3">🔴 높음</option>
+                    <option value="2">🟡 중간</option>
+                    <option value="1">🟢 낮음</option>
+                </select>
                 <button class="submit-btn">✔️</button>
             </div>
             <!-- 할 일 목록 -->
